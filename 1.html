@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<center><h2>Cписок</h2></center>
+
+<script>
+
+let ul = document.createElement('ul');
+let Mass = [];
+
+document.body.append(ul);
+
+while (true)
+{
+let all = prompt("Введите текст элемента списка");
+if (!all) break;
+Mass.push (all);
+}
+
+Mass.sort();
+ul.after(Mass.length);
+
+for(let i = 0; i<Mass.length; i++)
+{
+let li = document.createElement('li');
+li.textContent = Mass[i];
+ul.append(li);
+}
+
+</script>
+
+</body>
+</html>
