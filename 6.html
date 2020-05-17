@@ -1,0 +1,57 @@
+<html>
+
+<style type='text/css'>
+
+.bt {
+  margin-top: 20px;
+  margin-left: 630px;
+  width: 160px;
+  height: 30px;
+  border: 1px solid #004953;
+  box-shadow: 0px 0px 10px #004953;
+  text-align: center;
+  font: 20px bold;
+  color: blue
+}
+
+.for {
+  margin-top: 50px;
+  margin-left: 630px;
+  color: green;
+}
+</style>
+
+<body>
+
+<input class="bt" type=button value=Начало id="bts" onclick = btc1()>
+<form class="for" onsubmit="btc2()" id="btf"></form>
+
+<script>
+function btc1() {
+  bts.onclick = null;
+  btf.innerHTML += "<br><br>" + "Заполните поля!" + "<br>";
+	let count = document.createElement("input");
+	count.type = "text";
+	btf.append(count);
+	btf.innerHTML += "<br><br>";
+	let pount = document.createElement("input");
+	pount.type = "date";
+	btf.append(pount);
+
+	btf.innerHTML += "<br><br>";
+	let mount = document.createElement("input");
+	mount.type = "file";
+	btf.append(mount);
+	btf.innerHTML += "<br><br><br>";
+	let found = document.createElement("input");
+	found.type = "submit";
+	btf.append(found);
+};
+      function btc2() {
+        if (document.forms[0].elements[0].value) {alert(document.forms[0].elements[0].value)} else {alert("Пустое поле №1")};
+				if (document.forms[0].elements[1].value) {alert(document.forms[0].elements[1].value)} else {alert("Пустое поле №2")};
+				if (document.forms[0].elements[2].value) {alert(document.forms[0].elements[2].value)} else {alert("Пустое поле №3")};
+      };
+</script>
+</body>
+</html>
