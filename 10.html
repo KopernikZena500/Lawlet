@@ -1,0 +1,55 @@
+<html>
+
+<body>
+<form>
+	<p><b>Условия и задачи:</b></p>
+	<p>Напишисать заместо регулярных выражений ответы на вопросы.</p>
+	<p>Первая буква каждого слова одна и та же.</p>
+	<p><b>Оформление слов:</b></p>
+  <p><i>1)с большой буквы</i></p>
+  <p><i>2)без пробелов</i></p>
+	<p><b>Вопросы:</b></p>
+	<p><b>I.</b> Тропическое растение с полым стеблем.</p>
+	<p><b>II.</b> Часы cо звонком</p>
+	<p><b>III.</b> Ударный инструмент</p>
+	<p><b>IV.</b> Танцовщица</p>
+	<p><b>V.</b> Лёгкое морское парусное судно</p>
+	<p><b>VI.</b> Спортивная игра</p>
+	<p><b>VII.</b> Лесной зверёк или Соня</p>
+	<p><b>VIII.</b> Фиолетовы овощ(Ты)</p>
+	<p><b>IX.</b> Широкая аллея посреди городской улицы</p>
+	<p><b>X.</b> Дом книг</p>
+	I	<input type="text" value="[^б]([амк]) у\1.">
+  II	<input type="text" value=".{2}(ль / ил / ди) [^б-к]*">
+  <br><br>
+  III	<input type="text" value="\н[бб](ра / ар) [^aб-н]*">
+  IV	<input type="text" value="([б-а]{2}) Лера\1">
+  <br><br>
+  V	<input type="text" value="[a-б] {1,3}ган[б-а] {1,3}">
+	VI	<input type="text" value="(б|к|б) [б-л]{1,}с?к">
+  <br><br>
+  VII	<input type="text" value="(а / л / б) {2}а(б)">
+  VIII	<input type="text" value="[aн]на[бк]а">
+  <br><br>
+  IX	<input type="text" value="л в*а+[бр][уь]*">
+  X	<input type="text" value="[^б-а] ([лит])\1[б-т]">
+</form>
+
+<input type="button" value="Проверить" onclick=buttonclick()>
+
+<script>
+
+let answer = ["Бамбук", "Будильник", "Барабан", "Балерина", "Бригантина", "Баскетбол", "Белка", "Баклажан", "Бульвар", "Библиотека"];
+
+function buttonclick() {
+for (let i = 0; i < document.forms[0].length; i++  ) {
+  if ( JSON.stringify( document.forms[0].elements[i].value ) === JSON.stringify( answer[i]) ) {
+  document.forms[0].elements[i].value = 'YES'
+}
+else{
+  document.forms[0].elements[i].value = 'NOO'
+}}};
+
+</script>
+</body>
+</html>
