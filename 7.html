@@ -1,0 +1,45 @@
+<html>
+
+	<script>
+
+		function preloadImages(sources, callback) {
+			let count = 0;
+
+			sources.forEach(function(item, i) {
+				let img = document.createElement('img');
+				img.src = sources[i];
+
+				img.onload = function() { count++; if(count == sources.length) callback(); };
+
+				img.onerror = function() { count++; if(count == sources.length) callback(); }
+			})
+		}
+
+		//Тест для проверки работоспособности представленный автором задания
+
+		let sources = [
+			"https://js.cx/images-load/1.jpg",
+			"https://js.cx/images-load/2.jpg",
+			"https://js.cx/images-load/3.jpg"
+		];
+
+		for (let i = 0; i < sources.length; i++) { sources[i] += '?' + Math.random(); }
+
+		function testLoaded() {
+			let wSum = 0;
+
+			for (let i = 0; i < sources.length; i++) {
+				let img = document.createElement('img');
+				img.src = sources[i];
+				wSum += img.width;
+			}
+
+			console.log(wSum);
+			alert(wSum);
+		}
+
+		preloadImages(sources, testLoaded);
+
+	</script>
+
+</html>
